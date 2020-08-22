@@ -4,14 +4,43 @@ Created on Sat Aug 22 15:17:42 2020
 
 @author: wadid
 """
-X = [[0], [1], [2], [3]]
-Y = [0, 1, 2, 3]
-clf = svm.SVC(decision_function_shape='ovo')
+
+from sklearn import svm
+import numpy
+
+#X = [[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
+
+X = [[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]]
+
+print(len(X[0]), len(X[1]))
+#X = [[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1]], [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], [1, 1], [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1], [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 0, 0, 0, 0, 0, 1]]
+Y = [1, 0]
+#Y = [1,1,0,1,1,1,0,1,0,0]
+
+
+
+
+
+
+
+
+
+
+
+clf = svm.SVC()
 clf.fit(X, Y)
+clf.predict([1, 1, 1, 1, 1, 1, 1, 1])
 
-dec = clf.decision_function([[1]])
-print(dec.shape[1]) # 4 classes: 4*3/2 = 6
 
-clf.decision_function_shape = "ovr"
-dec = clf.decision_function([[1]])
-dec.shape[1] # 4 classes
+
+
+
+#clf = svm.SVC(decision_function_shape='ovo')
+#clf.fit(X, Y)
+#
+#dec = clf.decision_function([[1]])
+#print(dec.shape[1]) # 4 classes: 4*3/2 = 6
+#
+#clf.decision_function_shape = "ovr"
+#dec = clf.decision_function([[1]])
+#print(dec.shape[1]) # 4 classes
