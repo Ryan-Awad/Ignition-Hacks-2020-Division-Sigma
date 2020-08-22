@@ -65,3 +65,4 @@ def preprocessing():
 
     print("_________________________________________")
     print(training_df)
+    return training_df
