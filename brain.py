@@ -5,7 +5,7 @@ from Algorithms.stopwords import use_stopwords
 nltk.download('punkt')
 nltk.download('stopwords')
 
-judgement_dataset = pd.read_csv("datasets/contestant_judgment.csv") 
+judgement_dataset = pd.read_csv("datasets/test.csv")
 
 sw_text_list = []
 for phrase in judgement_dataset.Text:
