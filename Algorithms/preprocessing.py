@@ -8,17 +8,17 @@ from Algorithms.stopwords import use_stopwords
 
 nltk.download('punkt')
 training_df = pd.read_csv("datasets/test.csv")
-print(training_df)
 
 
-sw_text_list = []
-for phrase in training_df.Text:
-    sw_text = use_stopwords(phrase)
-    sw_text_list.append(sw_text)
-    # print(sw_text)
 
 def preprocessing():
 
+    print(training_df)
+    sw_text_list = []
+    for phrase in training_df.Text:
+        sw_text = use_stopwords(phrase)
+        sw_text_list.append(sw_text)
+        # print(sw_text)
     for ind in range(len(training_df.index)):
         # text = training_df.loc[ind,"Text"] #str
         text = str(sw_text_list[ind])
