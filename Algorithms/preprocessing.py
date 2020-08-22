@@ -3,20 +3,21 @@ import re
 import numpy as np
 import pandas as pd
 import heapq
+from ast import literal_eval
 from Algorithms.stopwords import use_stopwords
 
 nltk.download('punkt')
 training_df = pd.read_csv("datasets/test.csv")
+print(training_df)
 
 
 sw_text_list = []
 for phrase in training_df.Text:
     sw_text = use_stopwords(phrase)
     sw_text_list.append(sw_text)
-    print(sw_text)
+    # print(sw_text)
 
 def preprocessing():
-    print(training_df)
 
     for ind in range(len(training_df.index)):
         # text = training_df.loc[ind,"Text"] #str
@@ -43,7 +44,7 @@ def preprocessing():
                     bow[word] += 1
 
         #take the top 10 words with the highest frequency from each phrase
-        freq_words = heapq.nlargest(10, bow, key=bow.get)
+        freq_words = heapq.nlargest(20, bow, key=bow.get)
 
         #assign a vector to each frequent word
         freq_arr = []
@@ -57,4 +58,10 @@ def preprocessing():
             freq_arr.append(vector)
         freq_arr = np.asarray(freq_arr)
 
-        print(freq_arr)
+        freq_arr = freq_arr.tolist()
+        str1 = ' '.join(str(e) for e in freq_arr)
+
+        training_df.at[ind, "Vectorized"] = str1
+
+    print("_________________________________________")
+    print(training_df)
