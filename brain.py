@@ -1,6 +1,15 @@
 import pandas as pd
+import nltk
 from Algorithms.stopwords import use_stopwords
+from Algorithms.preprocessing import *
 
-judgement_dataset = pd.read_csv("datasets/contestant_judgment.csv")
-stopwords = use_stopwords(judgement_dataset)
+nltk.download('punkt')
+nltk.download('stopwords')
 
+# sw_text_list = []
+# for phrase in training_df.Text:
+#     sw_text = use_stopwords(phrase)
+#     sw_text_list.append(sw_text)
+#     print(sw_text)
+
+preprocessing()
