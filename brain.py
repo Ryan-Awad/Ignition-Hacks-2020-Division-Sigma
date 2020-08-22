@@ -1,7 +1,6 @@
 import pandas as pd
 import nltk
 from Algorithms.stopwords import use_stopwords
-import matplotlib.pyplot as plt
 
 nltk.download('punkt')
 nltk.download('stopwords')
