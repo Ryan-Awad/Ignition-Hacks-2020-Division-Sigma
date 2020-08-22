@@ -1,7 +1,7 @@
 import pandas as pd
 import nltk
 from Algorithms.stopwords import use_stopwords
-from preprocessing import *
+from Algorithms.preprocessing import *
 
 nltk.download('punkt')
 nltk.download('stopwords')

@@ -8,7 +8,6 @@ training_df = pd.read_csv("datasets/test.csv")
 nltk.download('punkt')
 
 def preprocessing():
-
     print(training_df)
 
     for ind in range(len(training_df.index)):
