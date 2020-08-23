@@ -22,6 +22,9 @@ clf.fit(x_train, y_train)
 
 accuracy = clf.score(x_test, y_test)
 
+from sklearn.metrics import f1_score
+print("f1_score:", f1_score(y_test, clf.predict(x_test), average=None, labels=[1, 0]))
+
 print("ACCURACY: " + str(accuracy))
 
 
