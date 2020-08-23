@@ -7,6 +7,8 @@ from ast import literal_eval
 from Algorithms.stopwords import use_stopwords
 
 nltk.download('punkt')
+nltk.download('wordnet') # for the lemmatization process
+
 training_df = pd.read_csv("datasets/training_data.csv")
 
 # training_df = training_df[:10000]
