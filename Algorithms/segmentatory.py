@@ -1,29 +1,28 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Aug 23 17:33:54 2020
-
-@author: Robbot
-"""
+import nltk
+import pandas as pd
+from ast import literal_eval
 import morfessor
-import pickle
-model_file = "model.bin"
+from Algorithms.stopwords import use_stopwords
 
 
-bruh_file_write = open("segment.txt", 'wb')
+nltk.download('punkt')
+training_df = pd.read_csv("training_data.csv")
 bruh_file_read = open("segment.txt", 'rb')
-pickle.dump(model_file, bruh_file_write)
-bruh_file_write.close()
-lmao = pickle.load(bruh_file_read)
+model_file = pickle.load(bruh_file_read)
 
 
-
-
-
-
-model_file = "model.bin"
 io = morfessor.MorfessorIO()
-model = io.read_binary_model_file(model_file)
+model = io.read_binary_model_file("model.bin")
 
-word = "running"
-# for segmenting new words we use the viterbi_segment(compound) method
-print(model.viterbi_segment(word)[0][0])
+def segmenting():
+    print("segmentation time BABY!...")
+
+    sw_text_list = []
+    for phrase in training_df.Text:
+        sw_text = use_stopwords(phrase)
+        sw_text_list.append(sw_text)
+
+        
+    for i in range(len(sw_text_list)):
+        for h in range(len(sw_text_list[i])):
+          sw_text_list[i][h] = model.viterbi_segment(sw_text_list[i][h])[0][0]
