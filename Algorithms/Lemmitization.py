@@ -16,7 +16,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk import wordnet
 
 nltk.download('punkt')
-training_df = pd.read_csv("Sheet1.csv")
+training_df = pd.read_csv("training_data.csv")
 #print(training_df)
 
 lemmatizer = WordNetLemmatizer() 
