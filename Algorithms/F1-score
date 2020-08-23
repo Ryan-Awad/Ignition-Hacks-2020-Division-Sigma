@@ -1,0 +1,4 @@
+from sklearn.metrics import f1_score
+
+# F1 Scores
+print("f1_score:", f1_score(y_test, clf.predict(x_test), average=None, labels=[1, 0]))
