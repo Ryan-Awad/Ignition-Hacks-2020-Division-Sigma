@@ -2,7 +2,7 @@
 """
 Created on Sun Aug 23 12:57:52 2020
 
-@author: wadid
+@author: Robbot
 """
 # import these modules 
 import nltk
