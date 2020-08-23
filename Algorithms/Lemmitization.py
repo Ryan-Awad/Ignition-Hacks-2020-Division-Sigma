@@ -30,8 +30,6 @@ def lemoning():
         sw_text = use_stopwords(phrase)
         sw_text_list.append(sw_text)
         
-    print(sw_text_list[0][0])
-
     for i in range(len(sw_text_list)):
         for h in range(len(sw_text_list[i])):
             sw_text_list[i][h] = lemmatizer.lemmatize(sw_text_list[i][h])
