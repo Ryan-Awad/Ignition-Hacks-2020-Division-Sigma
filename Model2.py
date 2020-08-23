@@ -2,7 +2,7 @@
 """
 Created on Sat Aug 22 15:17:42 2020
 
-@author: wadid
+@author: Robbot
 """
 
 from sklearn import svm
