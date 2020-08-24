@@ -5,6 +5,8 @@ import pandas as pd
 import heapq
 from ast import literal_eval
 from Algorithms.stopwords import use_stopwords
+from Algorithms.remove_tags import removetags
+from Algorithms.lemon import lemonade
 
 nltk.download('punkt')
 nltk.download('wordnet') # for the lemmatization process
@@ -14,16 +16,25 @@ training_df = pd.read_csv("datasets/training_data.csv")
 # training_df = training_df[:10000]
 
 def preprocessing():
-    print(training_df)
     print("PREPROCESSING...")
 
-    sw_text_list = []
+    rt_text_list = []
     for phrase in training_df.Text:
+        rt_text = removetags(phrase)
+        rt_text_list.append(rt_text)
+
+    sw_text_list = []
+    for phrase in rt_text_list:
         sw_text = use_stopwords(phrase)
         sw_text_list.append(sw_text)
-        # print(sw_text)
+    
+    print("LEMMATIZING...")
+    lm_text_list = []
+    for phrase in sw_text_list:
+        lm_text = lemonade(phrase)
+        lm_text_list.append(lm_text)
 
-    training_df['sw_text'] = sw_text_list
+    training_df['sw_text'] = lm_text_list
     training_df['sw_text'] = training_df['sw_text'].str.lower().replace(regex=r'\W', value=' ').replace(regex=r'\s+', value=' ').replace(regex=r'\d+', value=' ')
 
     vectorized_phrases = []

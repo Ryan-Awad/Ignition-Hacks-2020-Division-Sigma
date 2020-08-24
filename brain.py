@@ -9,6 +9,8 @@ from Algorithms.preprocessing import *
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report,confusion_matrix,accuracy_score
+from sklearn.metrics import f1_score
+import pickle
 
 nltk.download('stopwords')
 
@@ -17,14 +19,18 @@ training_df, x, y = preprocessing()
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=123)
 
 print("TRAINING...")
+
 clf = SVC(kernel='rbf')
 clf.fit(x_train, y_train)
 
+print("PICKLING...")
+# to save an AI
+file_write = open("AI.txt", 'wb')
+pickle.dump(clf, file_write)
+file_write.close()
+
 accuracy = clf.score(x_test, y_test)
-
-from sklearn.metrics import f1_score
-print("f1_score:", f1_score(y_test, clf.predict(x_test), average=None, labels=[1, 0]))
-
+print("F1_SCORE:", f1_score(y_test, clf.predict(x_test), average=None, labels=[1, 0]))
 print("ACCURACY: " + str(accuracy))
 
 
