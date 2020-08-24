@@ -11,4 +11,3 @@ This project was composed of members: Anusha Shekhar, Michelle Pansa, Robert Saa
  - Pandas==1.0.5
  - NLTK==3.5
  - SKLearn==0.23.2
- - Morfessor==2.0.6
