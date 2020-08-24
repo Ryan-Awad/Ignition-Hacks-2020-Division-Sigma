@@ -1,0 +1,13 @@
+import pickle
+
+# to grab a saved AI
+bruh_file_read = open("AI.txt", 'rb')
+file_write.close()
+clf = pickle.load(file_read)
+
+
+# to save an AI
+file_write = open("AI.txt", 'wb')
+# clf is the name of our AI 
+pickle.dump(clf, file_write)
+file_write.close()
