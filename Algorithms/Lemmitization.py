@@ -19,5 +19,4 @@ def lemoning(text):
     for i in range(len(text)):
         for h in range(len(text[i])):
             sw_text[i][h] = lemmatizer.lemmatize(sw_text[i][h])
-    return sw_text
-      
+    return sw_text      
